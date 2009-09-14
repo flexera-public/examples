@@ -1,0 +1,68 @@
+This is a list of issues that we need to fix before making a Mephisto
+release based on Rails 2.2.
+
+/ Try to upgrade to gem version of coderay
+/ Fix TZInfo to work again
+/ Security audit--see below
+/ Fix script/generate
+
+  Figure out why Mephisto won't work unless tzinfo is installed
+  Fix two intermittent comment failures in mephisto_controller_spec
+  Follow up on courtenay's BlueCloth patch
+  Add notes about db:create and Unicode to install notes
+
+  Make sure we know what's up with plugins
+  We need to review our TODO comments
+
+== Fixing JavaScripts
+
+Our JavaScripts are actually pretty broken, and have been for a while.
+
+  Update to latest Prototype
+  Fix admin/articles
+  Fix admin/assets
+  Test other controllers for breakage
+
+== Security
+
+Here's a list of remaining security work:
+
+  Admin only
+    For now, we'll assume that users with access to /admin don't try XSS
+    Filter file names for uploads
+    Can we block file uploads into public?  What about caching?
+    Review mass assignment in admin controllers
+    Only allow global admin functions on site 1 (or admin domain?)
+    Can we isolate articles, etc., from admin to prevent XSS?
+    Review http://guides.rubyonrails.org/security.html another time
+
+  Later
+    Improve password changing
+    Can we use SafeERB for Liquid templates?
+    Expire sessions after a while?
+    Do we need to upgrade to an industrial-strength HTML sanitizer?
+    Require the user to enter the old password when changing it
+      This will break our password reset system--need a major fix
+    Require password to change e-mail address?
+    Detect mass assignment failures in unit tests - not really security issue
+
+== Mass assignment protection
+
+# We need to modify this and put somewhere appropriate.
+ActiveRecord::Base.class_eval do
+  # Raise an error if mass-assignment occurs during unit tests.  Taken from:
+  # http://almosteffortless.com/2008/11/27/raising-protected-attribute-assignme
+  def log_protected_attribute_removal(*attributes)
+    raise "Can't mass-assign these protected attributes: #{attributes.join(', '
+  end
+end
+
+== After next release
+
+  Handle inactive users with named scopes, not acts_as_versioned
+  Clean out the issue tracker
+    http://ar-code.lighthouseapp.com/projects/34-mephisto
+  rake rails:update:javascripts
+    (complicated because mephisto/application.js depends on older versions)
+  Fix sidebar tabs to do something sensible with unsaved articles
+
