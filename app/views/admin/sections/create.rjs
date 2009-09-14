@@ -1,0 +1,8 @@
+if @section.errors.any?  
+  page.visual_effect :shake, 'section_name'
+  page.flash.errors error_messages_for(:section)
+else
+  page.flash.fade_error
+  page.flash.notice "Section '#{h @section.name}' created."
+  page['sections'].replace_html(render(:partial => 'section', :collection => @sections))
+end
