@@ -1,3 +1,0 @@
-
-  page.replace "comment-#{@comment.id}", :partial => 'comment', :object => @comment
-  page.remove "edit-comment-#{@comment.id}"

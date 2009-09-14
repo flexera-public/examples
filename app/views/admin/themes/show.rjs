@@ -1,2 +1,0 @@
-page['dialog-box'].replace_html :partial => 'tools'
-page.call 'Dialog.current.layout'
