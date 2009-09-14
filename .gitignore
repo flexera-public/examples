@@ -1,7 +1,6 @@
 .DS_Store
 .rake_tasks
 Capfile
-config/initializers/session_store.rb
 db/*.sqlite3
 log/*.log
 tmp
