@@ -1,0 +1,15 @@
+= RightScale Appserver Test - PHP
+
+This is the PHP implementation of the RightScale Unified Test Application as described by 
+https://rightscale.onconfluence.com/display/rightscale/Unified+Test+App
+
+
+== Build
+Only modify code under the "src" directory and "../common", then run 
+
+  rake
+
+== Install
+Deployable webroot will be located in the ./build dir and a tarball can be found in the ./dist dir.
+
+cary@rightscale.com

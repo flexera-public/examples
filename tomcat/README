@@ -1,0 +1,23 @@
+OVERVIEW
+========
+This is the tomcat incarnation of the RightScale Unified Test application. For more info on 
+the heck that is, checkout the wiki page: 
+
+https://rightscale.onconfluence.com/display/rightscale/Unified+Test+App
+
+
+BUILDING
+========
+You must have any installed, then run
+  
+  > ant
+  
+and it will package contents of web into a war file.
+The war file to deploy can be found in ./dist
+
+
+LICENSE
+=======
+Copyright (c) 2010 RightScale, Inc.
+
+All rights reserved - Do Not Redistribute

@@ -1,0 +1,67 @@
+require 'fileutils'
+
+BUILD_DIR = 'build'
+DIST_DIR = 'dist'
+TAR_FILE = "app_test_php.tar"
+
+
+desc "Clean and build php version of app_test."
+task :default => :clean do
+  Dir.mkdir BUILD_DIR 
+
+  # Copy over shared files  
+  files = Dir.glob('../common/web/**/*')
+  files.each do |source|
+    target = File.join(BUILD_DIR, source.sub(/..\/common\/web\//,"" ))
+    cp_r source, target #, :verbose => true
+  end
+  
+  # Copy over php source files  
+  files = Dir.glob('src/**/*')
+  files.each do |source|
+    target = File.join(BUILD_DIR, source.sub(/src\//,"" ))
+    cp_r source, target #, :verbose => true 
+  end
+
+  # Set permissions
+  chmod_R 0755, BUILD_DIR
+  
+  # Create tarball
+  Dir.mkdir DIST_DIR 
+  chmod 0755, DIST_DIR
+  cd BUILD_DIR
+  `tar cvf ../#{DIST_DIR}/#{TAR_FILE} ./*`
+  cd ".."
+
+end
+
+desc "Cleanup build and dist directories"
+task :clean do
+  rm_rf DIST_DIR if File.directory? DIST_DIR
+  rm_rf BUILD_DIR if File.directory? BUILD_DIR
+end
+
+desc "Remove build and dist from svn. Use this before final rake."
+task :svn_rm do
+  `svn rm --force #{DIST_DIR}`
+  `svn rm --force #{BUILD_DIR}`
+  `svn commit -m "app_test: php removing old build"`    
+end
+
+desc "Add build and dist to svn. Use this after final rake."
+task :svn_add do
+  
+  # Remove db config file -- breaks template
+  rm_rf "#{BUILD_DIR}/config"
+  
+  # Remove subversion files
+  svn_dirs = Dir.glob("#{BUILD_DIR}/**/.svn/")
+  svn_dirs.each do |d|
+    rm_rf d
+  end
+  
+  # SVN add
+  `svn add #{DIST_DIR}`
+  `svn add #{BUILD_DIR}`     
+end
+   
