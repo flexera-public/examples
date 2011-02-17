@@ -12,7 +12,7 @@ $hostname=$_SERVER['SERVER_NAME'];
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>RightScale Unified Test App<title>
+    <title>RightScale Unified Test App</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
 </head>
 
