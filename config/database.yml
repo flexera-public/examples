@@ -1,0 +1,14 @@
+development:
+ adapter: mysql
+ host:  localhost
+ username: app_user
+ password:  app_password
+ database:  app_test
+ socket:  /tmp/mysql-rude.sock
+
+production:
+ adapter: mysql
+ host:  localhost
+ username: app_user
+ password:  app_password
+ database:  app_test
