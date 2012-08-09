@@ -1,5 +1,8 @@
 # Django settings for app_test project.
 
+import os 
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -12,7 +15,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '/var/www/app_test/app_test/app_test.db',                      # Or path to database file if using sqlite3.
+        'NAME': os.path.join(SITE_ROOT) + '/app_test.db',                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -109,7 +112,8 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-	'/var/www/app_test/app_test/templates',
+    #	'/var/www/app_test/app_test/templates',
+    	os.path.join(SITE_ROOT, 'templates'),
 )
 
 INSTALLED_APPS = (
