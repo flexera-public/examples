@@ -9,12 +9,10 @@ urlpatterns = patterns('',
     url(r'^$', 'app_test.views.base', name='base'),
     url(r'^appserver$', 'app_test.views.appserver', name='appserver'),
     url(r'^serverid$', 'app_test.views.serverid', name='serverid'),
-#    url(r'^app_test/', hello),
-    # url(r'^app_test/', include('app_test.foo.urls')),
+    url(r'^dbread$', 'app_test.views.dbread', name='dbread'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-    url(r'^admin/', include(admin.site.urls)),
 )

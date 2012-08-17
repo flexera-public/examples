@@ -1,4 +1,4 @@
-# Django settings for app_test project.
+# Django settings for {{ project_name }} project.
 
 import os 
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
@@ -96,24 +96,25 @@ TEMPLATE_LOADERS = (
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+#    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
+#    'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'app_test.urls'
+#ROOT_URLCONF = 'myapp.urls'
+ROOT_URLCONF = 'urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'app_test.wsgi.application'
+WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     #	'/var/www/app_test/app_test/templates',
-    	os.path.join(SITE_ROOT, 'templates'),
+    	os.path.join(SITE_ROOT, 'app_test', 'templates'),
 )
 
 INSTALLED_APPS = (
@@ -121,8 +122,8 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+#    'django.contrib.messages',
+#    'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
