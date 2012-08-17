@@ -16,5 +16,10 @@ def serverid(request, template_file="serverid.html",  host_name = socket.gethost
     return render_to_response(template_file, c, t)
 
 def dbread(request, template_file="dbread.html"):
+    from django.db import connection, transaction
+    cursor = connection.cursor()
+    cursor.execute('SELECT * FROM app_test')
+    row1 = cursor.fetchall()
+    t = Context({'results': row1})
+    return render_to_response(template_file, t)
 
-    return render_to_response(template_file)
