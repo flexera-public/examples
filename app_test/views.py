@@ -7,7 +7,7 @@ def base(request, template_file="base.html"):
     return render_to_response(template_file)
 
 def appserver(request, template_file="appserver.html"):
-    c = Context({'result': 'succeded',})
+    c = Context({'result': 'succeeded',})
     return render_to_response(template_file, c)
 
 def serverid(request, template_file="serverid.html",  host_name = socket.gethostname()):
