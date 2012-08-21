@@ -6,6 +6,8 @@
 <?php 
 
 $result="succeeded";
+$ip_addr=$_SERVER['SERVER_ADDR'];
+$hostname=$_SERVER['SERVER_NAME'];
 
 ?>
    
@@ -27,6 +29,9 @@ $result="succeeded";
 <h3>  
 PHP configuration=<?php echo $result; ?>
 </h3>
+
+ip=<?php echo $ip_addr ?>; <br/>
+hostname=<?php echo $hostname ?>; <br/>
 
 </div>
 </div>
