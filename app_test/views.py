@@ -19,7 +19,7 @@ def dbread(request, template_file="dbread.html"):
     from django.db import connection, transaction
     cursor = connection.cursor()
     cursor.execute('SELECT * FROM app_test')
-    row1 = cursor.fetchall()
-    t = Context({'results': row1})
+    rows = cursor.fetchall()
+    t = Context({'results': rows})
     return render_to_response(template_file, t)
 

@@ -19,7 +19,11 @@
 <div class="code">
 <H1>Database Connection Test</H1>
 <h3>
-{{ results }}
+<ul>
+{% for item in results %}
+  <b>{{ item.1 }}:{{ item.2 }}</b><br><hr><br>
+{% endfor %}
+</ul>
 </h3>
 </div>
 </div>
