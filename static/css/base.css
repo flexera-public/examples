@@ -4,29 +4,28 @@ a img {border:none}
 a {text-decoration:none; color:#1e4a7e}
 
 #header {
-background:#235186;
-padding:2px 20px;
-position:relative;
-height:25px;
+  background:#235186;
+  padding:2px 20px;
+  position:relative;
+  height:25px;
 }
 
 #header #logo {
-margin-top:3px;
+  margin-top:3px;
 }
 
 .code_container {
-border:1px black solid;
-background: #F5F2A9;
-width:90%;
-margin-left: auto ;
+  border:1px black solid;
+  background: #F5F2A9;
+  width:90%;
+  margin-left: auto ;
     margin-right: auto ;
     position: relative;
     top: 10px;
-
 }
 .code {
-font-family:'Courier New', monospace;
-position:relative;
-left:10px;
-
+  font-family:'Courier New', monospace;
+  position:relative;
+  left:10px;
 }
+
