@@ -109,7 +109,7 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     #	'/var/www/app_test/app_test/templates',
-    	os.path.join(SITE_ROOT, 'app_test', 'templates'),
+    os.path.join(SITE_ROOT, 'app_test', 'templates'),
 )
 
 INSTALLED_APPS = (
