@@ -1,13 +1,12 @@
 development:
- adapter: mysql
+ adapter: postgresql
  host:  localhost
  username: app_user
  password:  app_password
  database:  app_test
- socket:  /tmp/mysql-rude.sock
 
 production:
- adapter: mysql
+ adapter: postgresql
  host:  localhost
  username: app_user
  password:  app_password

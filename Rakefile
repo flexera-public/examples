@@ -19,7 +19,12 @@ task :get_common do
   end
 end
 
+ task :create_db do
+      load_cmd= "if [ `psql -h localhost -U postgres --list | grep 'app_test'| wc -l` == '0' ]; then psql -h localhost -U postgres -c 'create database app_test'; fi"
+      system(load_cmd)
+     end
+
  task :load_sql do
-      load_cmd= "mysql < db/app_test.sql"
+      load_cmd= "psql -h localhost -U postgres -d app_test -c < db/app_test.sql"
       system(load_cmd)
      end
