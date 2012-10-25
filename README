@@ -8,7 +8,7 @@ https://rightscale.onconfluence.com/display/rightscale/Unified+Test+App
 
 BUILDING
 ========
-You must have any installed, then run
+You must have ant installed, then run
   
   > ant
   
