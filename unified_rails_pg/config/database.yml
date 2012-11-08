@@ -1,0 +1,13 @@
+development:
+ adapter: postgresql
+ host:  localhost
+ username: app_user
+ password:  app_password
+ database:  app_test
+
+production:
+ adapter: postgresql
+ host:  localhost
+ username: app_user
+ password:  app_password
+ database:  app_test

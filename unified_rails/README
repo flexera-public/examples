@@ -1,0 +1,17 @@
+= RightScale Appserver Test - Rails
+
+This is the Rails implementation of the RightScale Unified Test Application as described by 
+https://rightscale.onconfluence.com/display/rightscale/Unified+Test+App
+
+
+== Build
+Copy over the latest common files using 
+
+  rake get_common
+
+== Install
+This directory is rails application to deploy.
+
+Be sure to install the rail-2.1.2 gem
+
+cary@rightscale.com
