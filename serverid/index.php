@@ -30,6 +30,9 @@ PHP server
 </h3>
 ip=<?php echo $ip_addr ?>; <br/>
 hostname=<?php echo $hostname ?>; <br/>
+<br/>
+REMOTE_ADDR=<?php echo $_SERVER['REMOTE_ADDR'] ?>; <br/>
+HTTP_X_FORWARDED_FOR=<?php echo $_SERVER['HTTP_X_FORWARDED_FOR'] ?>; <br/>
 
 </div>
 </div>
