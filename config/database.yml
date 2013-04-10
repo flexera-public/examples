@@ -1,14 +1,21 @@
+#
+# Cookbook Name:: app_passenger
+#
+# Copyright RightScale, Inc. All rights reserved.  All access and use subject to the
+# RightScale Terms of Service available at http://www.rightscale.com/terms.php and,
+# if applicable, other agreements such as a RightScale Master Subscription Agreement.
+#
+# Managed by RightScale
+# DO NOT EDIT BY HAND
+#
+# DB Config file
+#
+# The database adapter used here is set by the "install_client_driver" action of db_provider.
+# See cookbooks/db_<provider>/providers/default.rb for more information.
 development:
- adapter: mysql
- host:  localhost
- username: app_user
- password:  app_password
- database:  app_test
- socket:  /tmp/mysql-rude.sock
-
-production:
- adapter: mysql
- host:  localhost
- username: app_user
- password:  app_password
- database:  app_test
+  adapter: mysql2
+  database: app_test
+  username: root
+  password: 
+  host: localhost
+  encoding: utf8
