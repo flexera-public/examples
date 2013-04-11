@@ -1,5 +1,5 @@
 -- MySQL dump 10.11	--
--- Host: localhost    Database: app_test
+-- Host: localhost    Database: myapp
 -- ------------------------------------------------------
 -- Server version       5.0.45-log
 
@@ -15,12 +15,12 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 	
 --
--- Current Database: `app_test`
+-- Current Database: `myapp`
 --
 	
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `app_test` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `myapp` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
-USE `app_test`;
+USE `myapp`;
 
 --
 -- Table structure for table `app_test`
