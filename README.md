@@ -8,4 +8,4 @@ There should be nothing in the master branch.
 
 support@rightscale.com
 
-Maintained by the RightScale White Team
+Maintained by the RightScale ServerTemplate Team
