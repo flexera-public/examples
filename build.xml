@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<project name="app_test" basedir="." default="all">
+    <target name="init">
+        <property name="appName" value="app_test"/>
+    
+        <property name="libDir" value="${basedir}/lib"/>
+        <property name="javaSourceDir" value="${basedir}/src/java"/>
+        <property name="webSourceDir" value="${basedir}/web"/>
+        <property name="etcDir" value="${basedir}/conf"/>
+
+        <property name="buildDir" value="${basedir}/build"/>
+        <property name="classDir" value="${buildDir}/classes"/>
+        <property name="jarDir" value="${buildDir}/jar"/>
+
+        <property name="deployDir" value="${basedir}"/>
+        <property name="distDir" value="${deployDir}/dist"/>
+
+        <!-- Create the directories where we put all the build products. -->    
+        <mkdir dir="${buildDir}"/>
+        <mkdir dir="${classDir}"/>
+        <mkdir dir="${distDir}"/>
+        <mkdir dir="${jarDir}"/>
+
+        <path id="compileClasspath">
+            <fileset dir="${libDir}"/>
+        </path>
+    </target>
+
+    <target name="compile" depends="init">
+        <javac srcdir="${javaSourceDir}" destdir="${classDir}" debug="true" deprecation="true">
+            <classpath refid="compileClasspath"/>
+        </javac>
+    </target>
+
+    <target name="jar" depends="init,compile">
+        <jar jarfile="${jarDir}/${appName}.jar" compress="true" 
+            basedir="${classDir}"/>
+    </target>
+
+    <target name="war" depends="jar">
+        <war destfile="${distDir}/${appName}.war" webxml="${etcDir}/WEB-INF/web.xml">
+            <fileset dir="web"/>
+            <lib dir="${libDir}">
+                <include name="jstl.jar"/>
+                <include name="standard.jar"/>
+            </lib>
+            <lib dir="${libDir}">
+                <include name="*.jar"/>
+            </lib>
+            <lib dir="${jarDir}">
+                <include name="${appName}.jar"/>
+            </lib>
+        </war>
+    </target>
+
+    <target name="all" depends="war, clean" description="Build everything.">
+        <echo message="Application built."/>
+    </target>
+
+    <target name="clean" depends="init" description="Clean all build products.">
+        <delete dir="${buildDir}"/>
+    </target>
+
+</project>
